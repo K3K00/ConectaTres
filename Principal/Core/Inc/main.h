@@ -70,9 +70,8 @@ void Error_Handler(void);
 #define BotonMatriz GPIOD
 
 #define MatrizLed_Pin GPIO_PIN_8
-#define MatrizLed_GPIO_Port GPIOB
 #define Buzzer_Pin GPIO_PIN_9
-#define Buzzer_GPIO_Port GPIOB
+#define MyB GPIOB
 
 /* USER CODE BEGIN Private defines */
 
