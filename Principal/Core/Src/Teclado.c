@@ -36,6 +36,7 @@ void Barrido(void) {
 	return;
 }
 
+// Chequeo secuencialmente cada columna para establecer una prioridad
 int Chequeo(int fila) {
 	if (HAL_GPIO_ReadPin(BotonMatriz, C1_Pin))
 		return (fila * 4) + 1;

@@ -22,6 +22,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "Teclado.h"
+#include "ActualizarLeds.h"
+#include "ws2812b.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -41,6 +43,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 TIM_HandleTypeDef htim4;
+DMA_HandleTypeDef hdma_tim4_ch3;
 
 /* USER CODE BEGIN PV */
 
@@ -49,6 +52,7 @@ TIM_HandleTypeDef htim4;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_TIM4_Init(void);
 /* USER CODE BEGIN PFP */
 
@@ -87,6 +91,7 @@ int main(void) {
 
 	/* Initialize all configured peripherals */
 	MX_GPIO_Init();
+	MX_DMA_Init();
 	MX_TIM4_Init();
 	/* USER CODE BEGIN 2 */
 
@@ -96,13 +101,14 @@ int main(void) {
 	/* USER CODE BEGIN WHILE */
 	while (1) {
 		/* USER CODE END WHILE */
-	    Barrido();
 
-	    tecla = ObtenerTecla();
-	    if (tecla != 0) {
-	        // acá tenés el número de tecla presionada (1 al 16)
-	        // por ejemplo: activar buzzer, encender LED, etc.
-	    }
+		for (int8_t led = 0; led<=31; led++){
+			WS2812_LED_N_Color(led, 0, 100, 0);
+			WS2812_Manda_Trama();
+			HAL_Delay(80);
+		}
+		WS2812_RESET();
+		WS2812_Manda_Trama();
 		/* USER CODE BEGIN 3 */
 	}
 	/* USER CODE END 3 */
@@ -211,6 +217,21 @@ static void MX_TIM4_Init(void) {
 }
 
 /**
+ * Enable DMA controller clock
+ */
+static void MX_DMA_Init(void) {
+
+	/* DMA controller clock enable */
+	__HAL_RCC_DMA1_CLK_ENABLE();
+
+	/* DMA interrupt init */
+	/* DMA1_Stream7_IRQn interrupt configuration */
+	HAL_NVIC_SetPriority(DMA1_Stream7_IRQn, 0, 0);
+	HAL_NVIC_EnableIRQ(DMA1_Stream7_IRQn);
+
+}
+
+/**
  * @brief GPIO Initialization Function
  * @param None
  * @retval None
@@ -226,7 +247,8 @@ static void MX_GPIO_Init(void) {
 	__HAL_RCC_GPIOB_CLK_ENABLE();
 
 	/*Configure GPIO pin Output Level */
-	//HAL_GPIO_WritePin(GPIOD, R1_Pin|R2_Pin|R3_Pin|R4_Pin, GPIO_PIN_RESET); Me lo setea en 0, esta mal.
+	HAL_GPIO_WritePin(GPIOD, R1_Pin | R2_Pin | R3_Pin | R4_Pin, GPIO_PIN_RESET);
+
 	/*Configure GPIO pins : C1_Pin C2_Pin C3_Pin C4_Pin */
 	GPIO_InitStruct.Pin = C1_Pin | C2_Pin | C3_Pin | C4_Pin;
 	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;

@@ -1,3 +1,3 @@
 ../Core/Src/Teclado.c:18:6:Barrido	8	static
-../Core/Src/Teclado.c:39:5:Chequeo	16	static
-../Core/Src/Teclado.c:51:5:ObtenerTecla	16	static
+../Core/Src/Teclado.c:40:5:Chequeo	16	static
+../Core/Src/Teclado.c:52:5:ObtenerTecla	16	static
