@@ -6,7 +6,7 @@
  */
 // Teclado.c
 #include "Teclado.h"
-#define PERIODO 10
+#define PERIODO 100
 
 static uint8_t filaActual = 0;		//la fila puede tomar el valor 0, 1, 2 o 3;
 static uint32_t tickAnterior = 0;	//almaceno el valor anterior del HAL_GetTick
@@ -20,19 +20,20 @@ void Barrido(void) {
 	HAL_GPIO_WritePin(BotonMatriz, R1_Pin | R2_Pin | R3_Pin | R4_Pin,
 			GPIO_PIN_RESET);
 	// Y luego solo enciendo solo la fila activa
-
+	tickAnterior = HAL_GetTick();
+	teclaDetectada = 0;
+	int check = 0;
 	do {
-		if (HAL_GetTick() - tickAnterior < PERIODO) { //Dentro del periodo, chequeamos el estado de la fila
-			tickAnterior = HAL_GetTick();
-			HAL_GPIO_WritePin(BotonMatriz, filas[filaActual], GPIO_PIN_SET);
-			if (Chequeo(filaActual) == 0) { // Chequeo si alguna columna de la fila actual esta en alto
-				teclaDetectada = Chequeo(filaActual);
-				HAL_GPIO_WritePin(BotonMatriz, filas[filaActual], GPIO_PIN_RESET); // Reinicio la fila actual
-				filaActual = (filaActual + 1) % 4; // Avanzo a la siguiente fila
-			}
-			teclaDetectada = Chequeo(filaActual);
-		}
-	} while (teclaDetectada == 0);
+		//Dentro del periodo, chequeamos el estado de la fila
+		HAL_GPIO_WritePin(BotonMatriz, filas[filaActual], GPIO_PIN_SET);
+		check = Chequeo(filaActual);
+		if (check == 0) { // Chequeo si alguna columna de la fila actual esta en alto
+			HAL_GPIO_WritePin(BotonMatriz, filas[filaActual], GPIO_PIN_RESET); // Reinicio la fila actual
+			filaActual = (filaActual + 1) % 4; // Avanzo a la siguiente fila
+		} else
+			teclaDetectada = check;
+
+	} while ((teclaDetectada == 0) && (HAL_GetTick() - tickAnterior < PERIODO));
 	return;
 }
 

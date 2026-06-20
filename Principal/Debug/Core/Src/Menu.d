@@ -1,5 +1,4 @@
-Core/Src/ActualizarLeds.o: ../Core/Src/ActualizarLeds.c \
- ../Core/Inc/ActualizarLeds.h ../Core/Inc/main.h \
+Core/Src/Menu.o: ../Core/Src/Menu.c ../Core/Inc/Menu.h ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -26,8 +25,10 @@ Core/Src/ActualizarLeds.o: ../Core/Src/ActualizarLeds.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
-../Core/Inc/ActualizarLeds.h:
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
+ ../Core/Inc/ws2812b.h ../Core/Inc/ws2812b.h ../Core/Inc/main.h \
+ ../Core/Inc/Teclado.h
+../Core/Inc/Menu.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -56,3 +57,7 @@ Core/Src/ActualizarLeds.o: ../Core/Src/ActualizarLeds.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
+../Core/Inc/ws2812b.h:
+../Core/Inc/ws2812b.h:
+../Core/Inc/main.h:
+../Core/Inc/Teclado.h:

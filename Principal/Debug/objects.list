@@ -1,4 +1,6 @@
-"./Core/Src/ActualizarLeds.o"
+"./Core/Src/Buzzer.o"
+"./Core/Src/Juego.o"
+"./Core/Src/Menu.o"
 "./Core/Src/Teclado.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32f4xx_hal_msp.o"

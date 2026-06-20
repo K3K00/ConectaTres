@@ -22,8 +22,10 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "Teclado.h"
-#include "ActualizarLeds.h"
+#include "Buzzer.h"
 #include "ws2812b.h"
+#include "Menu.h"
+#include "Juego.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -60,7 +62,7 @@ static void MX_TIM4_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-static int tecla = 0;
+int modo = 0;
 /* USER CODE END 0 */
 
 /**
@@ -94,7 +96,7 @@ int main(void) {
 	MX_DMA_Init();
 	MX_TIM4_Init();
 	/* USER CODE BEGIN 2 */
-
+	Inicio();
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -102,13 +104,6 @@ int main(void) {
 	while (1) {
 		/* USER CODE END WHILE */
 
-		for (int8_t led = 0; led<=31; led++){
-			WS2812_LED_N_Color(led, 0, 100, 0);
-			WS2812_Manda_Trama();
-			HAL_Delay(80);
-		}
-		WS2812_RESET();
-		WS2812_Manda_Trama();
 		/* USER CODE BEGIN 3 */
 	}
 	/* USER CODE END 3 */
