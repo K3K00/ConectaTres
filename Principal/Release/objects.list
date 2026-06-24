@@ -1,3 +1,4 @@
+"./Core/Src/Animaciones.o"
 "./Core/Src/Buzzer.o"
 "./Core/Src/Juego.o"
 "./Core/Src/Menu.o"

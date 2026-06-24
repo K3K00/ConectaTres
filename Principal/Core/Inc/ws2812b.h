@@ -29,12 +29,8 @@ extern TIM_HandleTypeDef htim4;
 
 
 void WS2812_LED_N_Color (uint8_t LED_N, uint8_t rojo, uint8_t verde, uint8_t azul);
-void WS2812_BRILLO (float brillo_);
 void WS2812_Arma_trama ();
 void WS2812_Manda_Trama ();
 void WS2812_RESET ();
-uint8_t Gamma_correccion(uint8_t color, float brillo_);
-uint8_t ws2812_rainbown_izq();
-uint8_t ws2812_rainbown_der();
 
 #endif /* LIBRERIAS_WS2812B_H_ */

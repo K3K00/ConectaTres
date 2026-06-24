@@ -9,6 +9,7 @@
 #include "ws2812b.h"
 #include "main.h"
 #include "Teclado.h"
+#include "Animaciones.h"
 
 static int tecla = 0;
 
@@ -60,110 +61,4 @@ int Seleccion(int modo) { //Aca quiero presentar ambas imagenes para los 2 modos
 	return m; //Devuelvo el valor m que determina el modo de juego
 }
 
-void Inicio(void) {
-	WS2812_LED_N_Color(1, 0, 0, 100);
-	WS2812_Manda_Trama();
-	HAL_Delay(50);
-	WS2812_LED_N_Color(3, 0, 0, 100);
-	WS2812_Manda_Trama();
-	HAL_Delay(50);
-	WS2812_LED_N_Color(4, 0, 0, 100);
-	WS2812_Manda_Trama();
-	HAL_Delay(50);
-	WS2812_LED_N_Color(6, 0, 0, 100);
-	WS2812_Manda_Trama();
-	HAL_Delay(50);
-	WS2812_LED_N_Color(7, 0, 0, 100);
-	WS2812_Manda_Trama();
-	HAL_Delay(50);
-	WS2812_LED_N_Color(8, 0, 0, 100);
-	WS2812_Manda_Trama();
-	HAL_Delay(50);
-	WS2812_LED_N_Color(10, 0, 0, 100);
-	WS2812_Manda_Trama();
-	HAL_Delay(50);
-	WS2812_LED_N_Color(11, 0, 0, 100);
-	WS2812_Manda_Trama();
-	HAL_Delay(50);
-	WS2812_LED_N_Color(12, 0, 0, 100);
-	WS2812_Manda_Trama();
-	HAL_Delay(50);
-	WS2812_LED_N_Color(15, 0, 0, 100);
-	WS2812_Manda_Trama();
-	HAL_Delay(50);
-	WS2812_LED_N_Color(20, 0, 0, 100);
-	WS2812_Manda_Trama();
-	HAL_Delay(50);
-	WS2812_LED_N_Color(23, 0, 0, 100);
-	WS2812_Manda_Trama();
-	HAL_Delay(50);
-	WS2812_LED_N_Color(24, 0, 0, 100);
-	WS2812_Manda_Trama();
-	HAL_Delay(50);
-	WS2812_LED_N_Color(27, 0, 0, 100);
-	WS2812_Manda_Trama();
-	HAL_Delay(50);
-	WS2812_LED_N_Color(29, 0, 0, 100);
-	WS2812_Manda_Trama();
-	HAL_Delay(50);
-	WS2812_LED_N_Color(30, 0, 0, 100);
-	WS2812_Manda_Trama();
-	HAL_Delay(2000);
 
-	WS2812_LED_N_Color(1, 0, 0, 0);
-	WS2812_LED_N_Color(3, 0, 0, 0);
-	WS2812_LED_N_Color(4, 0, 0, 0);
-	WS2812_LED_N_Color(6, 0, 0, 0);
-	WS2812_LED_N_Color(7, 0, 0, 0);
-	WS2812_LED_N_Color(8, 0, 0, 0);
-	WS2812_LED_N_Color(10, 0, 0, 0);
-	WS2812_LED_N_Color(11, 0, 0, 0);
-	WS2812_LED_N_Color(12, 0, 0, 0);
-	WS2812_LED_N_Color(15, 0, 0, 0);
-	WS2812_LED_N_Color(20, 0, 0, 0);
-	WS2812_LED_N_Color(23, 0, 0, 0);
-	WS2812_LED_N_Color(24, 0, 0, 0);
-	WS2812_LED_N_Color(27, 0, 0, 0);
-	WS2812_LED_N_Color(29, 0, 0, 0);
-	WS2812_LED_N_Color(30, 0, 0, 0);
-	WS2812_Manda_Trama();
-}
-
-void jvj(void) {
-	WS2812_LED_N_Color(0, 0, 10, 0);
-	WS2812_LED_N_Color(4, 0, 10, 0);
-	WS2812_LED_N_Color(5, 0, 10, 0);
-	WS2812_LED_N_Color(6, 0, 10, 0);
-	WS2812_LED_N_Color(7, 0, 10, 0);
-	WS2812_LED_N_Color(8, 0, 10, 0);
-	WS2812_LED_N_Color(10, 0, 10, 0);
-	WS2812_LED_N_Color(20, 0, 10, 0);
-	WS2812_LED_N_Color(24, 0, 10, 0);
-	WS2812_LED_N_Color(25, 0, 10, 0);
-	WS2812_LED_N_Color(26, 0, 10, 0);
-	WS2812_LED_N_Color(27, 0, 10, 0);
-	WS2812_LED_N_Color(28, 0, 10, 0);
-	WS2812_LED_N_Color(30, 0, 10, 0);
-	WS2812_Manda_Trama();
-}
-
-void jvcpu() {
-	WS2812_LED_N_Color(0, 0, 10, 0);
-	WS2812_LED_N_Color(2, 0, 10, 0);
-	WS2812_LED_N_Color(5, 0, 10, 0);
-	WS2812_LED_N_Color(6, 10, 0, 0);
-	WS2812_LED_N_Color(7, 0, 10, 0);
-	WS2812_LED_N_Color(9, 0, 10, 0);
-	WS2812_LED_N_Color(10, 10, 0, 0);
-	WS2812_LED_N_Color(11, 0, 10, 0);
-	WS2812_LED_N_Color(12, 0, 10, 0);
-	WS2812_LED_N_Color(14, 0, 10, 0);
-	WS2812_LED_N_Color(20, 0, 10, 0);
-	WS2812_LED_N_Color(24, 0, 10, 0);
-	WS2812_LED_N_Color(25, 0, 10, 0);
-	WS2812_LED_N_Color(26, 0, 10, 0);
-	WS2812_LED_N_Color(27, 0, 10, 0);
-	WS2812_LED_N_Color(28, 0, 10, 0);
-	WS2812_LED_N_Color(30, 0, 10, 0);
-	WS2812_Manda_Trama();
-}

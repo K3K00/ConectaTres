@@ -11,6 +11,7 @@
 #include "main.h"
 #include "stdint.h"
 #include "stdlib.h"
+#include "Animaciones.h"
 //---------------------------------------------------------------------------------------------------
 #define FILAS 8
 #define COLUMNAS 4
@@ -204,155 +205,44 @@ void animacion_victoria(int resultado) {
 
 	switch (resultado) {
 	case (0):
+		WS2812_RESET();
+		WS2812_Manda_Trama();
+		empate();
 
+		HAL_Delay(2000);
 		break;
 	case (1):
 		WS2812_RESET();
 		WS2812_Manda_Trama();
 
-		WS2812_LED_N_Color(31, 0, 0, 50);  //Azul
-		WS2812_LED_N_Color(28, 0, 0, 50);
-		WS2812_LED_N_Color(19, 0, 0, 50);
-		WS2812_LED_N_Color(16, 0, 0, 50);
-		WS2812_LED_N_Color(15, 0, 0, 50);
-		WS2812_LED_N_Color(14, 0, 0, 50);
-		WS2812_LED_N_Color(13, 0, 0, 50);
-		WS2812_LED_N_Color(3, 0, 0, 50);
-		WS2812_LED_N_Color(2, 0, 0, 50);
-		WS2812_LED_N_Color(1, 0, 0, 50);
-
-		WS2812_LED_N_Color(30, 50, 40, 0);  //Amarillo
-		WS2812_LED_N_Color(29, 50, 40, 0);
-		WS2812_LED_N_Color(27, 50, 40, 0);
-		WS2812_LED_N_Color(26, 50, 40, 0);
-		WS2812_LED_N_Color(25, 50, 40, 0);
-		WS2812_LED_N_Color(24, 50, 40, 0);
-		WS2812_LED_N_Color(23, 50, 40, 0);
-		WS2812_LED_N_Color(22, 50, 40, 0);
-		WS2812_LED_N_Color(21, 50, 40, 0);
-		WS2812_LED_N_Color(20, 50, 40, 0);
-		WS2812_LED_N_Color(18, 50, 40, 0);
-		WS2812_LED_N_Color(17, 50, 40, 0);
-		WS2812_LED_N_Color(12, 50, 40, 0);
-		WS2812_LED_N_Color(11, 50, 40, 0);
-		WS2812_LED_N_Color(9, 50, 40, 0);
-		WS2812_LED_N_Color(8, 50, 40, 0);
-		WS2812_LED_N_Color(7, 50, 40, 0);
-		WS2812_LED_N_Color(5, 50, 40, 0);
-		WS2812_LED_N_Color(4, 50, 40, 0);
-		WS2812_LED_N_Color(0, 50, 40, 0);
-
-		WS2812_LED_N_Color(10, 0, 50, 0);  //Verde
-		WS2812_LED_N_Color(6, 0, 50, 0);
-		WS2812_Manda_Trama();
+		ganaazul();
 
 		HAL_Delay(2000);
-
-		for (int f = 0; f <= (FILAS - 1); f++) {
-			for (int c = 0; c <= (COLUMNAS - 1); c++) {
-				tablero[f][c] = 0;
-			}
-		}
 
 		break;
 	case (2):
 		WS2812_RESET();
 		WS2812_Manda_Trama();
-		WS2812_LED_N_Color(31, 50, 0, 0);
-		WS2812_LED_N_Color(28, 50, 0, 0);
-		WS2812_LED_N_Color(19, 50, 0, 0);
-		WS2812_LED_N_Color(16, 50, 0, 0);
-		WS2812_LED_N_Color(15, 50, 0, 0);
-		WS2812_LED_N_Color(14, 50, 0, 0);
-		WS2812_LED_N_Color(13, 50, 0, 0);
-		WS2812_LED_N_Color(3, 50, 0, 0);
-		WS2812_LED_N_Color(2, 50, 0, 0);
-		WS2812_LED_N_Color(1, 50, 0, 0);
-
-		WS2812_LED_N_Color(30, 50, 40, 0);  //Amarillo
-		WS2812_LED_N_Color(29, 50, 40, 0);
-		WS2812_LED_N_Color(27, 50, 40, 0);
-		WS2812_LED_N_Color(26, 50, 40, 0);
-		WS2812_LED_N_Color(25, 50, 40, 0);
-		WS2812_LED_N_Color(24, 50, 40, 0);
-		WS2812_LED_N_Color(23, 50, 40, 0);
-		WS2812_LED_N_Color(22, 50, 40, 0);
-		WS2812_LED_N_Color(21, 50, 40, 0);
-		WS2812_LED_N_Color(20, 50, 40, 0);
-		WS2812_LED_N_Color(18, 50, 40, 0);
-		WS2812_LED_N_Color(17, 50, 40, 0);
-		WS2812_LED_N_Color(12, 50, 40, 0);
-		WS2812_LED_N_Color(11, 50, 40, 0);
-		WS2812_LED_N_Color(9, 50, 40, 0);
-		WS2812_LED_N_Color(8, 50, 40, 0);
-		WS2812_LED_N_Color(7, 50, 40, 0);
-		WS2812_LED_N_Color(5, 50, 40, 0);
-		WS2812_LED_N_Color(4, 50, 40, 0);
-		WS2812_LED_N_Color(0, 50, 40, 0);
-
-		WS2812_LED_N_Color(10, 0, 50, 0);
-		WS2812_LED_N_Color(6, 0, 50, 0);
-		WS2812_Manda_Trama();
+		ganarojo();
 
 		HAL_Delay(2000);
-
-		for (int f = 0; f <= (FILAS - 1); f++) {
-			for (int c = 0; c <= (COLUMNAS - 1); c++) {
-				tablero[f][c] = 0;
-			}
-		}
 
 	case (3):
 		WS2812_RESET();
 		WS2812_Manda_Trama();
-		WS2812_LED_N_Color(31, 0, 0, 0);
-		WS2812_LED_N_Color(28, 0, 0, 0);
-		WS2812_LED_N_Color(19, 0, 0, 0);
-		WS2812_LED_N_Color(16, 0, 0, 0);
-		WS2812_LED_N_Color(15, 0, 0, 0);
-		WS2812_LED_N_Color(14, 0, 0, 0);
-		WS2812_LED_N_Color(13, 0, 0, 0);
-		WS2812_LED_N_Color(3, 0, 0, 0);
-		WS2812_LED_N_Color(2, 0, 0, 0);
-		WS2812_LED_N_Color(1, 0, 0, 0);
-
-		WS2812_LED_N_Color(30, 50, 40, 0);  //Amarillo
-		WS2812_LED_N_Color(29, 50, 40, 0);
-		WS2812_LED_N_Color(27, 50, 40, 0);
-		WS2812_LED_N_Color(26, 50, 40, 0);
-		WS2812_LED_N_Color(25, 50, 40, 0);
-		WS2812_LED_N_Color(24, 50, 40, 0);
-		WS2812_LED_N_Color(23, 50, 40, 0);
-		WS2812_LED_N_Color(22, 50, 40, 0);
-		WS2812_LED_N_Color(21, 50, 40, 0);
-		WS2812_LED_N_Color(20, 50, 40, 0);
-		WS2812_LED_N_Color(18, 50, 40, 0);
-		WS2812_LED_N_Color(17, 50, 40, 0);
-		WS2812_LED_N_Color(12, 50, 40, 0);
-		WS2812_LED_N_Color(11, 50, 40, 0);
-		WS2812_LED_N_Color(9, 50, 40, 0);
-		WS2812_LED_N_Color(8, 50, 40, 0);
-		WS2812_LED_N_Color(7, 50, 40, 0);
-		WS2812_LED_N_Color(5, 50, 40, 0);
-		WS2812_LED_N_Color(4, 50, 40, 0);
-		WS2812_LED_N_Color(0, 50, 40, 0);
-
-		WS2812_LED_N_Color(10, 0, 50, 0);
-		WS2812_LED_N_Color(6, 0, 50, 0);
-		WS2812_Manda_Trama();
+		ganacpu();
 
 		HAL_Delay(2000);
-
-		for (int f = 0; f <= (FILAS - 1); f++) {
-			for (int c = 0; c <= (COLUMNAS - 1); c++) {
-				tablero[f][c] = 0;
-			}
-		}
 
 		break;
 	default:  //Resultado solo puede tomar tres valores
 		break;
+	}
 
+	for (int f = 0; f <= (FILAS - 1); f++) {
+		for (int c = 0; c <= (COLUMNAS - 1); c++) {
+			tablero[f][c] = 0;
+		}
 	}
 
 }
