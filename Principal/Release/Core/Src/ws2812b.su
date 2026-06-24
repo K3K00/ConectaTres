@@ -1,0 +1,4 @@
+../Core/Src/ws2812b.c:21:6:WS2812_LED_N_Color	8	static
+../Core/Src/ws2812b.c:31:6:WS2812_Arma_trama	24	static
+../Core/Src/ws2812b.c:64:6:WS2812_Manda_Trama	8	static
+../Core/Src/ws2812b.c:71:6:WS2812_RESET	0	static

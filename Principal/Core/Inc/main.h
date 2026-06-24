@@ -59,6 +59,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+
+/* USER CODE BEGIN Private defines */
 #define C1_Pin GPIO_PIN_0
 #define C2_Pin GPIO_PIN_1
 #define C3_Pin GPIO_PIN_2
@@ -68,14 +70,10 @@ void Error_Handler(void);
 #define R3_Pin GPIO_PIN_6
 #define R4_Pin GPIO_PIN_7
 #define BotonMatriz GPIOD
-
-
 #define MatrizLed_Pin GPIO_PIN_8
+#define MatrizLed_GPIO_Port GPIOB
 #define Buzzer_Pin GPIO_PIN_9
-#define MyB GPIOB
-
-/* USER CODE BEGIN Private defines */
-
+#define Buzzer_GPIO_Port GPIOB
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

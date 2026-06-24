@@ -26,6 +26,7 @@
 #include "ws2812b.h"
 #include "Menu.h"
 #include "Juego.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -63,6 +64,10 @@ static void MX_TIM4_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 int modo = 0;
+int seleccion = 0;
+int salida = 0;
+int resultado = 0;
+int jugador_actual = 1;
 /* USER CODE END 0 */
 
 /**
@@ -97,14 +102,33 @@ int main(void) {
 	MX_TIM4_Init();
 	/* USER CODE BEGIN 2 */
 	Inicio();
+	modo = Seleccion(modo);
 	/* USER CODE END 2 */
-
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 	while (1) {
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
+		switch (modo) {
+		case 0:
+			SeleccionarColumna();
+			Gravedad();
+			break;
+		case 1:
+			SeleccionarColumna();
+			Gravedad();
+			break;
+		}
+		verificar_victoria();
+		if (resultado != 0) {
+			animacion_victoria(resultado);
+			WS2812_RESET();
+			WS2812_Manda_Trama();
+			jugador_actual = 1;
+			resultado = 0;
+			modo = Seleccion(modo);
+		}
 	}
 	/* USER CODE END 3 */
 }
@@ -200,10 +224,6 @@ static void MX_TIM4_Init(void) {
 			!= HAL_OK) {
 		Error_Handler();
 	}
-	if (HAL_TIM_PWM_ConfigChannel(&htim4, &sConfigOC, TIM_CHANNEL_4)
-			!= HAL_OK) {
-		Error_Handler();
-	}
 	/* USER CODE BEGIN TIM4_Init 2 */
 
 	/* USER CODE END TIM4_Init 2 */
@@ -238,11 +258,15 @@ static void MX_GPIO_Init(void) {
 	/* USER CODE END MX_GPIO_Init_1 */
 
 	/* GPIO Ports Clock Enable */
+	__HAL_RCC_GPIOA_CLK_ENABLE();
 	__HAL_RCC_GPIOD_CLK_ENABLE();
 	__HAL_RCC_GPIOB_CLK_ENABLE();
 
 	/*Configure GPIO pin Output Level */
 	HAL_GPIO_WritePin(GPIOD, R1_Pin | R2_Pin | R3_Pin | R4_Pin, GPIO_PIN_RESET);
+
+	/*Configure GPIO pin Output Level */
+	HAL_GPIO_WritePin(Buzzer_GPIO_Port, Buzzer_Pin, GPIO_PIN_RESET);
 
 	/*Configure GPIO pins : C1_Pin C2_Pin C3_Pin C4_Pin */
 	GPIO_InitStruct.Pin = C1_Pin | C2_Pin | C3_Pin | C4_Pin;
@@ -256,6 +280,13 @@ static void MX_GPIO_Init(void) {
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 	HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+	/*Configure GPIO pin : Buzzer_Pin */
+	GPIO_InitStruct.Pin = Buzzer_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+	HAL_GPIO_Init(Buzzer_GPIO_Port, &GPIO_InitStruct);
 
 	/* USER CODE BEGIN MX_GPIO_Init_2 */
 

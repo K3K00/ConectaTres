@@ -23,8 +23,8 @@ void Barrido(void) {
 	tickAnterior = HAL_GetTick();
 	teclaDetectada = 0;
 	int check = 0;
-	do {
-		//Dentro del periodo, chequeamos el estado de la fila
+
+	do {//Dentro del periodo, chequeamos el estado de la fila
 		HAL_GPIO_WritePin(BotonMatriz, filas[filaActual], GPIO_PIN_SET);
 		check = Chequeo(filaActual);
 		if (check == 0) { // Chequeo si alguna columna de la fila actual esta en alto
@@ -32,7 +32,6 @@ void Barrido(void) {
 			filaActual = (filaActual + 1) % 4; // Avanzo a la siguiente fila
 		} else
 			teclaDetectada = check;
-
 	} while ((teclaDetectada == 0) && (HAL_GetTick() - tickAnterior < PERIODO));
 	return;
 }

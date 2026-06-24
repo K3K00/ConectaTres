@@ -12,5 +12,7 @@
 
 void Inicio (void);
 int Seleccion (int modo);
+void jvj(void);
+void jvcpu(void);
 
 #endif /* INC_MENU_H_ */
