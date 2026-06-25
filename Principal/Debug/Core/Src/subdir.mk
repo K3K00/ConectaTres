@@ -7,6 +7,7 @@
 C_SRCS += \
 ../Core/Src/Animaciones.c \
 ../Core/Src/Buzzer.c \
+../Core/Src/Delay.c \
 ../Core/Src/Juego.c \
 ../Core/Src/Menu.c \
 ../Core/Src/Teclado.c \
@@ -21,6 +22,7 @@ C_SRCS += \
 OBJS += \
 ./Core/Src/Animaciones.o \
 ./Core/Src/Buzzer.o \
+./Core/Src/Delay.o \
 ./Core/Src/Juego.o \
 ./Core/Src/Menu.o \
 ./Core/Src/Teclado.o \
@@ -35,6 +37,7 @@ OBJS += \
 C_DEPS += \
 ./Core/Src/Animaciones.d \
 ./Core/Src/Buzzer.d \
+./Core/Src/Delay.d \
 ./Core/Src/Juego.d \
 ./Core/Src/Menu.d \
 ./Core/Src/Teclado.d \
@@ -54,7 +57,7 @@ Core/Src/%.o Core/Src/%.su Core/Src/%.cyclo: ../Core/Src/%.c Core/Src/subdir.mk
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/Animaciones.cyclo ./Core/Src/Animaciones.d ./Core/Src/Animaciones.o ./Core/Src/Animaciones.su ./Core/Src/Buzzer.cyclo ./Core/Src/Buzzer.d ./Core/Src/Buzzer.o ./Core/Src/Buzzer.su ./Core/Src/Juego.cyclo ./Core/Src/Juego.d ./Core/Src/Juego.o ./Core/Src/Juego.su ./Core/Src/Menu.cyclo ./Core/Src/Menu.d ./Core/Src/Menu.o ./Core/Src/Menu.su ./Core/Src/Teclado.cyclo ./Core/Src/Teclado.d ./Core/Src/Teclado.o ./Core/Src/Teclado.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32f4xx_hal_msp.cyclo ./Core/Src/stm32f4xx_hal_msp.d ./Core/Src/stm32f4xx_hal_msp.o ./Core/Src/stm32f4xx_hal_msp.su ./Core/Src/stm32f4xx_it.cyclo ./Core/Src/stm32f4xx_it.d ./Core/Src/stm32f4xx_it.o ./Core/Src/stm32f4xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32f4xx.cyclo ./Core/Src/system_stm32f4xx.d ./Core/Src/system_stm32f4xx.o ./Core/Src/system_stm32f4xx.su ./Core/Src/ws2812b.cyclo ./Core/Src/ws2812b.d ./Core/Src/ws2812b.o ./Core/Src/ws2812b.su
+	-$(RM) ./Core/Src/Animaciones.cyclo ./Core/Src/Animaciones.d ./Core/Src/Animaciones.o ./Core/Src/Animaciones.su ./Core/Src/Buzzer.cyclo ./Core/Src/Buzzer.d ./Core/Src/Buzzer.o ./Core/Src/Buzzer.su ./Core/Src/Delay.cyclo ./Core/Src/Delay.d ./Core/Src/Delay.o ./Core/Src/Delay.su ./Core/Src/Juego.cyclo ./Core/Src/Juego.d ./Core/Src/Juego.o ./Core/Src/Juego.su ./Core/Src/Menu.cyclo ./Core/Src/Menu.d ./Core/Src/Menu.o ./Core/Src/Menu.su ./Core/Src/Teclado.cyclo ./Core/Src/Teclado.d ./Core/Src/Teclado.o ./Core/Src/Teclado.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32f4xx_hal_msp.cyclo ./Core/Src/stm32f4xx_hal_msp.d ./Core/Src/stm32f4xx_hal_msp.o ./Core/Src/stm32f4xx_hal_msp.su ./Core/Src/stm32f4xx_it.cyclo ./Core/Src/stm32f4xx_it.d ./Core/Src/stm32f4xx_it.o ./Core/Src/stm32f4xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32f4xx.cyclo ./Core/Src/system_stm32f4xx.d ./Core/Src/system_stm32f4xx.o ./Core/Src/system_stm32f4xx.su ./Core/Src/ws2812b.cyclo ./Core/Src/ws2812b.d ./Core/Src/ws2812b.o ./Core/Src/ws2812b.su
 
 .PHONY: clean-Core-2f-Src
 

@@ -1,6 +1,7 @@
-../Core/Src/Juego.c:42:13:cambiar_jugador	4	static
-../Core/Src/Juego.c:63:6:SeleccionarColumna	16	static
-../Core/Src/Juego.c:109:6:juega_CPU	8	static
-../Core/Src/Juego.c:122:6:Gravedad	24	static
-../Core/Src/Juego.c:152:5:verificar_victoria	40	static
-../Core/Src/Juego.c:204:6:animacion_victoria	24	static
+../Core/Src/Juego.c:43:13:cambiar_jugador	4	static
+../Core/Src/Juego.c:64:6:SeleccionarColumna	16	static
+../Core/Src/Juego.c:110:6:juega_CPU	8	static
+../Core/Src/Juego.c:123:6:Gravedad	24	static
+../Core/Src/Juego.c:153:5:verificar_victoria	40	static
+../Core/Src/Juego.c:209:6:animacion_victoria	16	static
+../Core/Src/Juego.c:243:6:Limpiar	16	static

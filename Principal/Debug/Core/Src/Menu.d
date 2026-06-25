@@ -27,7 +27,7 @@ Core/Src/Menu.o: ../Core/Src/Menu.c ../Core/Inc/Menu.h ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Core/Inc/ws2812b.h ../Core/Inc/ws2812b.h ../Core/Inc/main.h \
- ../Core/Inc/Teclado.h ../Core/Inc/Animaciones.h
+ ../Core/Inc/Teclado.h ../Core/Inc/Animaciones.h ../Core/Inc/Delay.h
 ../Core/Inc/Menu.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -62,3 +62,4 @@ Core/Src/Menu.o: ../Core/Src/Menu.c ../Core/Inc/Menu.h ../Core/Inc/main.h \
 ../Core/Inc/main.h:
 ../Core/Inc/Teclado.h:
 ../Core/Inc/Animaciones.h:
+../Core/Inc/Delay.h:

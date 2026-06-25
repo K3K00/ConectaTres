@@ -10,6 +10,7 @@
 #include "main.h"
 #include "Teclado.h"
 #include "Animaciones.h"
+#include "Delay.h"
 
 static int tecla = 0;
 
@@ -30,7 +31,7 @@ int Seleccion(int modo) { //Aca quiero presentar ambas imagenes para los 2 modos
 			WS2812_RESET();
 			WS2812_Manda_Trama();
 
-			HAL_Delay(50);
+			Delay(50);
 
 			jvj();
 
@@ -41,7 +42,7 @@ int Seleccion(int modo) { //Aca quiero presentar ambas imagenes para los 2 modos
 			WS2812_RESET();
 			WS2812_Manda_Trama();
 
-			HAL_Delay(50);
+			Delay(50);
 
 			jvcpu();
 

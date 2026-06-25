@@ -125,6 +125,7 @@ int main(void) {
 			animacion_victoria(resultado);
 			WS2812_RESET();
 			WS2812_Manda_Trama();
+			Limpiar();
 			jugador_actual = 1;
 			resultado = 0;
 			modo = Seleccion(modo);

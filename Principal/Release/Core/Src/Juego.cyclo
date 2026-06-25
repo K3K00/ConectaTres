@@ -1,5 +1,6 @@
-../Core/Src/Juego.c:109:6:juega_CPU	3
-../Core/Src/Juego.c:63:6:SeleccionarColumna	11
-../Core/Src/Juego.c:122:6:Gravedad	13
-../Core/Src/Juego.c:152:5:verificar_victoria	25
-../Core/Src/Juego.c:204:6:animacion_victoria	6
+../Core/Src/Juego.c:110:6:juega_CPU	3
+../Core/Src/Juego.c:64:6:SeleccionarColumna	11
+../Core/Src/Juego.c:123:6:Gravedad	13
+../Core/Src/Juego.c:153:5:verificar_victoria	31
+../Core/Src/Juego.c:210:6:animacion_victoria	5
+../Core/Src/Juego.c:246:6:Limpiar	2

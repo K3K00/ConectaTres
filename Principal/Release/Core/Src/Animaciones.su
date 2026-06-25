@@ -1,7 +1,7 @@
-../Core/Src/Animaciones.c:11:6:Inicio	8	static
-../Core/Src/Animaciones.c:80:6:jvj	8	static
-../Core/Src/Animaciones.c:98:6:jvcpu	8	static
-../Core/Src/Animaciones.c:119:6:ganaazul	8	static
-../Core/Src/Animaciones.c:157:6:ganarojo	8	static
-../Core/Src/Animaciones.c:195:6:ganacpu	8	static
-../Core/Src/Animaciones.c:233:6:empate	8	static
+../Core/Src/Animaciones.c:12:6:Inicio	8	static
+../Core/Src/Animaciones.c:81:6:jvj	8	static
+../Core/Src/Animaciones.c:100:6:jvcpu	8	static
+../Core/Src/Animaciones.c:122:6:ganaazul	8	static
+../Core/Src/Animaciones.c:161:6:ganarojo	8	static
+../Core/Src/Animaciones.c:200:6:ganacpu	8	static
+../Core/Src/Animaciones.c:239:6:empate	8	static

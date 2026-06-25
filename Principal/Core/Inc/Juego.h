@@ -14,5 +14,6 @@ void Gravedad(void);
 void juega_CPU(void);
 int verificar_victoria(void);
 void animacion_victoria(int resultado);
+void Limpiar(void);
 
 #endif /* INC_JUEGO_H_ */

@@ -7,56 +7,57 @@
 #include "Animaciones.h"
 #include "main.h"
 #include "ws2812b.h"
+#include "Delay.h"
 
 void Inicio(void) {
 	WS2812_LED_N_Color(1, 0, 0, 100);
 	WS2812_Manda_Trama();
-	HAL_Delay(50);
+	Delay(50);
 	WS2812_LED_N_Color(3, 0, 0, 100);
 	WS2812_Manda_Trama();
-	HAL_Delay(50);
+	Delay(50);
 	WS2812_LED_N_Color(4, 0, 0, 100);
 	WS2812_Manda_Trama();
-	HAL_Delay(50);
+	Delay(50);
 	WS2812_LED_N_Color(6, 0, 0, 100);
 	WS2812_Manda_Trama();
-	HAL_Delay(50);
+	Delay(50);
 	WS2812_LED_N_Color(7, 0, 0, 100);
 	WS2812_Manda_Trama();
-	HAL_Delay(50);
+	Delay(50);
 	WS2812_LED_N_Color(8, 0, 0, 100);
 	WS2812_Manda_Trama();
-	HAL_Delay(50);
+	Delay(50);
 	WS2812_LED_N_Color(10, 0, 0, 100);
 	WS2812_Manda_Trama();
-	HAL_Delay(50);
+	Delay(50);
 	WS2812_LED_N_Color(11, 0, 0, 100);
 	WS2812_Manda_Trama();
-	HAL_Delay(50);
+	Delay(50);
 	WS2812_LED_N_Color(12, 0, 0, 100);
 	WS2812_Manda_Trama();
-	HAL_Delay(50);
+	Delay(50);
 	WS2812_LED_N_Color(15, 0, 0, 100);
 	WS2812_Manda_Trama();
-	HAL_Delay(50);
+	Delay(50);
 	WS2812_LED_N_Color(20, 0, 0, 100);
 	WS2812_Manda_Trama();
-	HAL_Delay(50);
+	Delay(50);
 	WS2812_LED_N_Color(23, 0, 0, 100);
 	WS2812_Manda_Trama();
-	HAL_Delay(50);
+	Delay(50);
 	WS2812_LED_N_Color(24, 0, 0, 100);
 	WS2812_Manda_Trama();
-	HAL_Delay(50);
+	Delay(50);
 	WS2812_LED_N_Color(27, 0, 0, 100);
 	WS2812_Manda_Trama();
-	HAL_Delay(50);
+	Delay(50);
 	WS2812_LED_N_Color(29, 0, 0, 100);
 	WS2812_Manda_Trama();
-	HAL_Delay(50);
+	Delay(50);
 	WS2812_LED_N_Color(30, 0, 0, 100);
 	WS2812_Manda_Trama();
-	HAL_Delay(2000);
+	Delay(2000);
 
 	WS2812_LED_N_Color(1, 0, 0, 0);
 	WS2812_LED_N_Color(3, 0, 0, 0);
@@ -93,6 +94,7 @@ void jvj(void) {
 	WS2812_LED_N_Color(28, 0, 10, 0);
 	WS2812_LED_N_Color(30, 0, 10, 0);
 	WS2812_Manda_Trama();
+	Delay(1000);
 }
 
 void jvcpu() {
@@ -114,6 +116,7 @@ void jvcpu() {
 	WS2812_LED_N_Color(28, 0, 10, 0);
 	WS2812_LED_N_Color(30, 0, 10, 0);
 	WS2812_Manda_Trama();
+	Delay(1000);
 }
 
 void ganaazul(void) {
@@ -152,6 +155,7 @@ void ganaazul(void) {
 	WS2812_LED_N_Color(10, 0, 50, 0);  //Verde
 	WS2812_LED_N_Color(6, 0, 50, 0);
 	WS2812_Manda_Trama();
+	Delay(1000);
 }
 
 void ganarojo(void) {
@@ -190,6 +194,7 @@ void ganarojo(void) {
 	WS2812_LED_N_Color(10, 0, 50, 0);
 	WS2812_LED_N_Color(6, 0, 50, 0);
 	WS2812_Manda_Trama();
+	Delay(1000);
 }
 
 void ganacpu(void) {
@@ -228,10 +233,11 @@ void ganacpu(void) {
 	WS2812_LED_N_Color(10, 0, 50, 0);
 	WS2812_LED_N_Color(6, 0, 50, 0);
 	WS2812_Manda_Trama();
+	Delay(1000);
 }
 
 void empate (void){
-    WS2812_LED_N_Color(2, 50, 50, 50);
+    WS2812_LED_N_Color(1, 50, 50, 50);
     WS2812_LED_N_Color(4, 50, 50, 50);
     WS2812_LED_N_Color(5, 50, 50, 50);
     WS2812_LED_N_Color(6, 50, 50, 50);
@@ -247,4 +253,7 @@ void empate (void){
     WS2812_LED_N_Color(23, 50, 50, 50);
     WS2812_LED_N_Color(26, 50, 50, 50);
     WS2812_LED_N_Color(27, 50, 50, 50);
+
+    WS2812_Manda_Trama();
+    Delay(1000);
 }

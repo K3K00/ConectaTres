@@ -12,6 +12,7 @@
 #include "stdint.h"
 #include "stdlib.h"
 #include "Animaciones.h"
+#include "Delay.h"
 //---------------------------------------------------------------------------------------------------
 #define FILAS 8
 #define COLUMNAS 4
@@ -78,7 +79,7 @@ void SeleccionarColumna(void)  //Arranca con el jugador 1
 				if (indice_columna < 3) {
 					indice_columna++;
 				}
-				HAL_Delay(200);
+				Delay(200);
 				break;
 
 			case (13): //Apago el led y me muevo a la izquierda
@@ -86,12 +87,12 @@ void SeleccionarColumna(void)  //Arranca con el jugador 1
 				if (indice_columna > 0) {
 					indice_columna--;
 				}
-				HAL_Delay(200);
+				Delay(200);
 				break;
 
 			case (8):
 				jugada_confirmada = 1;
-				HAL_Delay(200);
+				Delay(200);
 				break;
 			default:
 				break;
@@ -138,7 +139,7 @@ void Gravedad(void) {
 	for (int f = 0; f <= fila_destino; f++) { //Este for es para controlar el encendio y apagado de los leds
 		WS2812_LED_N_Color(TABLERO_LEDS[f][indice_columna], r, g, b);
 		WS2812_Manda_Trama();
-		HAL_Delay(80);
+		Delay(80);
 		if (f < fila_destino) {
 			WS2812_LED_N_Color(TABLERO_LEDS[f][indice_columna], 0, 0, 0);
 			WS2812_Manda_Trama();
@@ -155,7 +156,7 @@ int verificar_victoria(void) {
 	//int resultado = 0;
 
 	for (int f = 0; f < FILAS; f++) {                 // Recorre las 8 filas
-		for (int c = 0; c < (COLUMNAS - 1); c++) {
+		for (int c = 0; c < (COLUMNAS - 2); c++) {
 			if (tablero[f][c] != 0 && tablero[f][c] == tablero[f][c + 1]
 					&& tablero[f][c] == tablero[f][c + 2]) {
 				resultado = tablero[f][c]; // Devuelve el numero que hay en la casilla
@@ -197,52 +198,52 @@ int verificar_victoria(void) {
 		}
 	}
 
-	resultado = 0; // No ganó nadie / Empate
+	if ((tablero[1][0] != 0)
+			&& (tablero[1][1] != 0) && (tablero[1][2] != 0)
+			&& (tablero[1][3] != 0)) {
+		resultado = 4;// No ganó nadie / Empate
+	}
 	return resultado;
 }
 
 void animacion_victoria(int resultado) {
 
 	switch (resultado) {
-	case (0):
-		WS2812_RESET();
-		WS2812_Manda_Trama();
-		empate();
-
-		HAL_Delay(2000);
-		break;
 	case (1):
 		WS2812_RESET();
 		WS2812_Manda_Trama();
-
-		ganaazul();
-
-		HAL_Delay(2000);
-
+		ganarojo();
+		Delay(2000);
 		break;
 	case (2):
 		WS2812_RESET();
 		WS2812_Manda_Trama();
-		ganarojo();
-
-		HAL_Delay(2000);
-
+		ganaazul();
+		Delay(2000);
+		break;
 	case (3):
 		WS2812_RESET();
 		WS2812_Manda_Trama();
 		ganacpu();
-
-		HAL_Delay(2000);
+		Delay(2000);
+		break;
+	case (4):
+		WS2812_RESET();
+		WS2812_Manda_Trama();
+		empate();
+		Delay(2000);
 
 		break;
 	default:  //Resultado solo puede tomar tres valores
 		break;
 	}
 
+}
+
+void Limpiar(void) {
 	for (int f = 0; f <= (FILAS - 1); f++) {
 		for (int c = 0; c <= (COLUMNAS - 1); c++) {
 			tablero[f][c] = 0;
 		}
 	}
-
 }
