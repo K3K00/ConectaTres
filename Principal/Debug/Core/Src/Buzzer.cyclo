@@ -1,1 +1,4 @@
-../Core/Src/Buzzer.c:12:6:Sonar	1
+../Core/Src/Buzzer.c:13:6:sonidotecla	1
+../Core/Src/Buzzer.c:20:6:sonidovictoriarojo	1
+../Core/Src/Buzzer.c:35:6:sonidovictoriaazul	1
+../Core/Src/Buzzer.c:50:6:sonidovictoriacpu	1

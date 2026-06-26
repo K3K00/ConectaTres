@@ -6,6 +6,7 @@
  */
 // Teclado.c
 #include "Teclado.h"
+#include "Buzzer.h"
 #define PERIODO 100
 
 static uint8_t filaActual = 0;		//la fila puede tomar el valor 0, 1, 2 o 3;
@@ -24,14 +25,16 @@ void Barrido(void) {
 	teclaDetectada = 0;
 	int check = 0;
 
-	do {//Dentro del periodo, chequeamos el estado de la fila
+	do {	//Dentro del periodo, chequeamos el estado de la fila
 		HAL_GPIO_WritePin(BotonMatriz, filas[filaActual], GPIO_PIN_SET);
 		check = Chequeo(filaActual);
 		if (check == 0) { // Chequeo si alguna columna de la fila actual esta en alto
 			HAL_GPIO_WritePin(BotonMatriz, filas[filaActual], GPIO_PIN_RESET); // Reinicio la fila actual
 			filaActual = (filaActual + 1) % 4; // Avanzo a la siguiente fila
-		} else
+		} else {
 			teclaDetectada = check;
+			sonidotecla();
+		}
 	} while ((teclaDetectada == 0) && (HAL_GetTick() - tickAnterior < PERIODO));
 	return;
 }

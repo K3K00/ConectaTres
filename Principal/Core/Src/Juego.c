@@ -13,6 +13,7 @@
 #include "stdlib.h"
 #include "Animaciones.h"
 #include "Delay.h"
+#include "Buzzer.h"
 //---------------------------------------------------------------------------------------------------
 #define FILAS 8
 #define COLUMNAS 4
@@ -72,7 +73,6 @@ void SeleccionarColumna(void)  //Arranca con el jugador 1
 		if ((jugador_actual == 1) | (jugador_actual == 2)) {
 			Barrido();
 			tecla = ObtenerTecla();
-
 			switch (tecla) {
 			case (1):  //Apago el led y me muevo a la derecha
 				WS2812_LED_N_Color(columna[indice_columna], 0, 0, 0);
@@ -81,7 +81,6 @@ void SeleccionarColumna(void)  //Arranca con el jugador 1
 				}
 				Delay(200);
 				break;
-
 			case (13): //Apago el led y me muevo a la izquierda
 				WS2812_LED_N_Color(columna[indice_columna], 0, 0, 0);
 				if (indice_columna > 0) {
@@ -89,7 +88,6 @@ void SeleccionarColumna(void)  //Arranca con el jugador 1
 				}
 				Delay(200);
 				break;
-
 			case (8):
 				jugada_confirmada = 1;
 				Delay(200);
@@ -102,9 +100,7 @@ void SeleccionarColumna(void)  //Arranca con el jugador 1
 		}
 		WS2812_LED_N_Color(columna[indice_columna], r, g, b);
 		WS2812_Manda_Trama();
-
 	} while (jugada_confirmada == 0);
-
 }
 
 void juega_CPU(void) {
@@ -139,6 +135,7 @@ void Gravedad(void) {
 	for (int f = 0; f <= fila_destino; f++) { //Este for es para controlar el encendio y apagado de los leds
 		WS2812_LED_N_Color(TABLERO_LEDS[f][indice_columna], r, g, b);
 		WS2812_Manda_Trama();
+		sonidotecla();
 		Delay(80);
 		if (f < fila_destino) {
 			WS2812_LED_N_Color(TABLERO_LEDS[f][indice_columna], 0, 0, 0);
@@ -146,15 +143,12 @@ void Gravedad(void) {
 		}
 	}
 	tablero[fila_destino][indice_columna] = jugador_actual;
-
 	cambiar_jugador();
 }
 
 int verificar_victoria(void) {
 
 	// --- HORIZONTAL (3 seguidas) ---
-	//int resultado = 0;
-
 	for (int f = 0; f < FILAS; f++) {                 // Recorre las 8 filas
 		for (int c = 0; c < (COLUMNAS - 2); c++) {
 			if (tablero[f][c] != 0 && tablero[f][c] == tablero[f][c + 1]
@@ -207,24 +201,26 @@ int verificar_victoria(void) {
 }
 
 void animacion_victoria(int resultado) {
-
 	switch (resultado) {
 	case (1):
 		WS2812_RESET();
 		WS2812_Manda_Trama();
 		ganarojo();
+		sonidovictoriarojo();
 		Delay(2000);
 		break;
 	case (2):
 		WS2812_RESET();
 		WS2812_Manda_Trama();
 		ganaazul();
+		sonidovictoriaazul();
 		Delay(2000);
 		break;
 	case (3):
 		WS2812_RESET();
 		WS2812_Manda_Trama();
 		ganacpu();
+		sonidovictoriacpu();
 		Delay(2000);
 		break;
 	case (4):
@@ -232,7 +228,6 @@ void animacion_victoria(int resultado) {
 		WS2812_Manda_Trama();
 		empate();
 		Delay(2000);
-
 		break;
 	default:  //Resultado solo puede tomar tres valores
 		break;

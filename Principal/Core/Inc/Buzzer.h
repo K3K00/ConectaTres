@@ -9,6 +9,9 @@
 #define INC_BUZZER_H_
 #include "main.h"
 
-void Sonar (void);
+void sonidotecla (void);
+void sonidovictoriarojo (void);
+void sonidovictoriaazul (void);
+void sonidovictoriacpu (void);
 
 #endif /* INC_BUZZER_H_ */
